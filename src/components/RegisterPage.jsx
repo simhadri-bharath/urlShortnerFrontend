@@ -26,6 +26,7 @@ const RegisterPage = () => {
     const registerHandler = async (data) => {
         
         setLoader(true);
+        console.log(import.meta.env.VITE_BACKEND_URL);
         try {
             const { data: response } = await api.post(
                 "/api/auth/public/register",
