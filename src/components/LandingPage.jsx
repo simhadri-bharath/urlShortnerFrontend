@@ -2,12 +2,15 @@ import { useNavigate } from "react-router-dom";
 import React from "react";
 import { motion } from "framer-motion";
 import Card from "./Card";
+import { useStoreContext } from "../contextAPi/ContextApi";
 let desc =
   "Generate short, memorable links with ease using Linklytics’s intuitive interface. Share URLs effortlessly across platforms. Optimize your sharing strategy with Linklytics. Track clicks and manage your links seamlessly to enhance your online presence. Generate short, memorable links with ease using Linklytics’s intuitive interface. Share URLs effortlessly across platforms.";
 const LandingPage = () => {
   const navigate = useNavigate();
   const dashBoardNavigateHandler = () => {
   };
+  const {token} =useStoreContext();
+  console.log(token);
   return (
     <div className="min-h-[calc(100vh-64px)]  lg:px-14 sm:px-8 px-4">
       <div className="lg:flex-row flex-col    lg:py-5   pt-16   lg:gap-10 gap-8 flex justify-between items-center">
