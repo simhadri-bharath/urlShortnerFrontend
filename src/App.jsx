@@ -8,7 +8,7 @@ import Navbar from './components/Navbar';
 import RegisterPage from './components/RegisterPage';
 import { Toaster } from 'react-hot-toast';
 import LoginPage from './components/LoginPage';
-import dashboard from './components/dashboard';
+import Dashboard from './components/Dashboard';
 
 function App() {
   return (
@@ -25,7 +25,7 @@ function App() {
           <Route path="/about" element={<AboutPage />} />
           <Route path='/register' element={<RegisterPage />}/>
           <Route path='/login' element={<LoginPage />}/>
-          <Route path='/dashboard' element={<dashboard />}/>
+          <Route path='/dashboard' element={<Dashboard/>}/>
         </Routes>
         <Footer />
       </Router>
