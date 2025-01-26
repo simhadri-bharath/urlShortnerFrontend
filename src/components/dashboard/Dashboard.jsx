@@ -5,9 +5,12 @@ import { useStoreContext } from '../../contextAPi/ContextApi'
 import { useFetchMyShortUrls, useFetchTotalClicks } from '../../hooks/useQuery'
 import ShortenPopup from './ShortenPopup'
 import ShortenUrlList from './ShortenUrlList'
+import { useNavigate } from 'react-router-dom'
+import Loader from '../Loader'
 const Dashboard = () => {
   // const refetch=false;
   const [shortenPopUp,setShortenPopUp]=useState(false);
+  const navigate = useNavigate();
 
     const {token} =useStoreContext();
      // console.log(useFetchTotalClicks(token, onError));
@@ -18,12 +21,13 @@ const Dashboard = () => {
                                     useFetchTotalClicks(token,onError);
     function onError(){
         console.log("error");
+        navigate("/error");
         
     }
   return (
     <div className="lg:px-14 sm:px-8 px-4 min-h-[calc(100vh-64px)]">
        {loader?(
-        <p>Loading......</p>
+       <Loader />
        ):(
         <div className="lg:w-[90%] w-full mx-auto py-16">
              {totalClicks.length === 0 && (
