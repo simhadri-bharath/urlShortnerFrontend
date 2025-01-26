@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Graph from './Graph'
 import {dummyData} from '../../dummyData/data'
 import { useStoreContext } from '../../contextAPi/ContextApi'
 import { useFetchTotalClicks } from '../../hooks/useQuery'
+import ShortenPopup from './ShortenPopup'
 const Dashboard = () => {
+  const refetch=false;
+  const [shortenPopUp,setShortenPopUp]=useState(false);
+
     const {token} =useStoreContext();
      // console.log(useFetchTotalClicks(token, onError));
 
@@ -35,12 +39,18 @@ const Dashboard = () => {
             </div>
             <div className='py-5 sm:text-end text-center'>
                 <button
-                    className='bg-custom-gradient px-4 py-2 rounded-md text-white'>
+                    className='bg-custom-gradient px-4 py-2 rounded-md text-white'
+                    onClick={()=> setShortenPopUp(true)}>
                     Create a New Short URL
                 </button>
             </div>
         </div>
        )}
+        <ShortenPopup
+          refetch={refetch}
+          open={shortenPopUp}
+          setOpen={setShortenPopUp}
+        />
     </div>
   )
 }
