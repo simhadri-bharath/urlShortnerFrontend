@@ -4,10 +4,15 @@ import './index.css'
 import App from './App.jsx'
 import { ContextProvider } from './contextAPi/ContextApi.jsx'
 
+import { QueryClient, QueryClientProvider } from 'react-query'
+const queryClient = new QueryClient();
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-  <ContextProvider>
+    <QueryClientProvider client={queryClient}>
+      <ContextProvider>
         <App />
       </ContextProvider>
+    </QueryClientProvider>
   </StrictMode>,
 )

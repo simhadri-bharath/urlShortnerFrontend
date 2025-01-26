@@ -8,7 +8,7 @@ import Navbar from './components/Navbar';
 import RegisterPage from './components/RegisterPage';
 import { Toaster } from 'react-hot-toast';
 import LoginPage from './components/LoginPage';
-import Dashboard from './components/Dashboard';
+import Dashboard from './components/dashboard/Dashboard';
 
 function App() {
   return (
